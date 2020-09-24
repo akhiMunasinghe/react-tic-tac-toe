@@ -1,3 +1,12 @@
+/* SASS Variables for squares */
+$square_background_color: #fff;
+$square_size:34px;
+
+/* SASS Variables for winner class */
+$winner_backgroung_color: rgb(233, 20, 204);
+$winner_font_weight: bold;
+$winner_font: 16px sans-serif;
+
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
@@ -18,18 +27,18 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
+  background-color: $square_background_color;
   border: 1px solid #999;
   float: left;
   font-size: 24px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: $square_size;
+  height: $square_size;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: $square_size;
 }
 
 .square:focus {
@@ -47,4 +56,11 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+.winner {
+  background-color: $winner_backgroung_color;
+  font: $winner_font;
+  font-weight: $winner_font_weight;
+  text-align: center;
 }

@@ -1,6 +1,8 @@
 /* SASS Variables for squares */
 $square_background_color: #fff;
 $square_size:34px;
+$square_gradient_start: #fff;
+$square_gradient_end: rgb(126, 122, 122);
 
 /* SASS Variables for winner class */
 $winner_backgroung_color: rgb(233, 20, 204);
@@ -12,7 +14,8 @@ body {
   margin: 20px;
 }
 
-ol, ul {
+ol,
+ul {
   padding-left: 30px;
 }
 
@@ -27,7 +30,6 @@ ol, ul {
 }
 
 .square {
-  background-color: $square_background_color;
   border: 1px solid #999;
   float: left;
   font-size: 24px;
@@ -39,14 +41,22 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: $square_size;
+  position: relative;
+  background-image: linear-gradient(to right, $square_gradient_start, $square_gradient_end);
+
+  &:hover {
+    background-image: linear-gradient(to bottom,
+        hsl(344, 100%, 50%),
+        hsl(31, 100%, 40%));
+    transition: background-image 1s linear;
+  }
+
 }
 
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
+.square--X {
+  background-image: linear-gradient(to bottom,
+  hsl(344, 100%, 50%),
+  hsl(31, 100%, 40%)) !important;
 }
 
 .game {

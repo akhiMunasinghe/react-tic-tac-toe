@@ -1,0 +1,77 @@
+/* SASS Variables for squares */
+$square_background_color: #fff;
+$square_size:34px;
+$square_gradient_start: #fff;
+$square_gradient_end: rgb(126, 122, 122);
+
+/* SASS Variables for winner class */
+$winner_backgroung_color: rgb(233, 20, 204);
+$winner_font_weight: bold;
+$winner_font: 16px sans-serif;
+
+body {
+  --font-setting:  14px "Century Gothic", Futura, sans-serif;
+  font: var(--font-setting);
+  margin: 20px;
+}
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: $square_size;
+  height: $square_size;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: $square_size;
+  position: relative;
+  background-image: linear-gradient(to right, $square_gradient_start, $square_gradient_end);
+
+  &:hover {
+    background-image: linear-gradient(to bottom,
+        hsl(344, 100%, 50%),
+        hsl(31, 100%, 40%));
+    transition: background-image 1s linear;
+  }
+
+}
+
+.square--X {
+  background-image: linear-gradient(to bottom,
+  hsl(344, 100%, 50%),
+  hsl(31, 100%, 40%)) !important;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.winner {
+  background-color: $winner_backgroung_color;
+  font: $winner_font;
+  font-weight: $winner_font_weight;
+  text-align: center;
+}

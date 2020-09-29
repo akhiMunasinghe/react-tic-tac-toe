@@ -10,7 +10,8 @@ $winner_font_weight: bold;
 $winner_font: 16px sans-serif;
 
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  --font-setting:  14px "Century Gothic", Futura, sans-serif;
+  font: var(--font-setting);
   margin: 20px;
 }
 

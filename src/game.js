@@ -1,17 +1,25 @@
 import React from 'react';
-import {calculateWinner} from './utils';
+import {calculateWinner, retrieveSpells} from './utils';
 import {Board} from './board';
+import { Spells } from './spells';
 
 export class Game extends React.Component {
-    constructor(props){
+  spellsArray = [];
+    constructor(props){ 
       super(props);
       this.state = {
         history : [{
           squares : Array(9).fill(null),
         }],
         xIsNext : true,
-        stepNumber : 0,
+        stepNumber: 0,
+        spellSelected: {}
       };
+    }
+  
+      async componentDidMount() {
+        const spellsRecieved = await retrieveSpells();
+        this.spellsArray = spellsRecieved;
     }
 
     handleClick(i){
@@ -27,7 +35,8 @@ export class Game extends React.Component {
         squares : squares,
         }]),
         xIsNext : !this.state.xIsNext,
-        stepNumber : history.length,
+        stepNumber: history.length,
+        spellSelected: this.spellsArray[Math.floor(Math.random() * this.spellsArray.length)],
       });
     }
 
@@ -60,6 +69,7 @@ export class Game extends React.Component {
         status = <div>Next Player: {(this.state.xIsNext ? "X" : "O")}</div>;
       }
       return (
+        <div className = "container">
         <div className="game">
           <div className="game-board">
             <Board 
@@ -71,7 +81,12 @@ export class Game extends React.Component {
             {status}
             <ol>{moves}</ol>
           </div>
-        </div>
+          </div>
+          <div className="spellsBoard">
+            <Spells 
+              spell={this.state.spellSelected} />
+          </div>
+          </div>
       );
     }
   }

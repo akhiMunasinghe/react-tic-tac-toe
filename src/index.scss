@@ -10,7 +10,7 @@ $winner_font_weight: bold;
 $winner_font: 16px sans-serif;
 
 body {
-  --font-setting:  14px "Century Gothic", Futura, sans-serif;
+  --font-setting: 14px "Century Gothic", Futura, sans-serif;
   font: var(--font-setting);
   margin: 20px;
 }
@@ -56,13 +56,13 @@ ul {
 
 .square--X {
   background-image: linear-gradient(to bottom,
-  hsl(344, 100%, 50%),
-  hsl(31, 100%, 40%)) !important;
+      hsl(344, 100%, 50%),
+      hsl(31, 100%, 40%)) !important;
 }
 
 .game {
   display: flex;
-  flex-direction: row;
+  width: 50%;
 }
 
 .game-info {
@@ -74,4 +74,41 @@ ul {
   font: $winner_font;
   font-weight: $winner_font_weight;
   text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.spellsBoard {
+  float: right;
+}
+
+.spell {
+  &--spell {
+    background-color: #999;
+  }
+
+  &--charm {
+    background-color: rgb(171, 164, 212);
+  }
+
+  &--hex {
+    background-color: rgb(156, 228, 192);
+  }
+
+  &--curse {
+    background-color: rgb(202, 76, 27);
+  }
+
+  &__title {
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  &__effect {
+    font-size: medium;
+  }
+
 }

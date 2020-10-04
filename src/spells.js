@@ -1,16 +1,16 @@
 import React from 'react';
 
 export function Spells(props) {
-    const spellClassModifier = "--"+props.spell.type;
+    const spellClassName = props.spell.type? `spell spell--${props.spell.type.toLowerCase()}`:"";
     return (
-            <div className={"spell spell"+spellClassModifier.toLowerCase()}>
-                <div className="spell spell__title">
+        <div className={spellClassName}>
+                <div className="spell__title">
                     {props.spell.spell}
                 </div>
-                <div className="spell spell__type">
+                <div className="spell__type">
                     {props.spell.type}
                 </div>
-                <div className="spell spell__effect">
+                <div className="spell__effect">
                     {props.spell.effect}
                 </div>
             </div>

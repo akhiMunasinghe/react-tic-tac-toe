@@ -52,12 +52,12 @@ ul {
     transition: background-image 1s linear;
   }
 
-}
+  &--X{
+    background-image: linear-gradient(to bottom,
+    hsl(344, 100%, 50%),
+    hsl(31, 100%, 40%)) !important;
+  }
 
-.square--X {
-  background-image: linear-gradient(to bottom,
-  hsl(344, 100%, 50%),
-  hsl(31, 100%, 40%)) !important;
 }
 
 .game {

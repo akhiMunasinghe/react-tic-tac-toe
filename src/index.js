@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 
 function Square(props){
   return(
@@ -102,10 +102,10 @@ function Square(props){
       })
       let status;
       if(winner){
-        status = "Winner: " + winner;
+        status = <div className="winner">Winner: {winner}</div>;
       }
       else{
-        status = "Next Player: " + (this.state.xIsNext ? "X" : "O");
+        status = <div>Next Player: {(this.state.xIsNext ? "X" : "O")}</div>;
       }
       return (
         <div className="game">
@@ -116,7 +116,8 @@ function Square(props){
             />
           </div>
           <div className="game-info">
-            <div>{status}</div>
+            {/* <div class="winner">{status}</div> */}
+            {status}
             <ol>{moves}</ol>
           </div>
         </div>
